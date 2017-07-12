@@ -1,0 +1,20 @@
+建立表格: img
+--------------------------------------------------------------------------------------------------------
+DROP TABLE IMG;
+DROP SEQUENCE img_seq;
+
+CREATE TABLE IMG (
+ IMGNO               NUMBER(3) NOT NULL,
+ IMGNAME                VARCHAR2(10),
+ IMAGE                      BLOB,
+ CONSTRAINT EMP2_EMPNO_PK PRIMARY KEY (IMGNO));
+ 
+CREATE SEQUENCE img_seq
+INCREMENT BY 1
+START WITH 101
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+commit;
+--------------------------------------------------------------------------------------------------------

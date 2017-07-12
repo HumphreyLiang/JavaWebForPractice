@@ -1,0 +1,18 @@
+CREATE SEQUENCE img_seq
+INCREMENT BY 1
+START WITH 101
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+查詢目前表格中有使用中sequence
+ SELECT * FROM USER_SEQUENCES;
+
+刪除sequence:
+ DROP SEQUENCE img_seq;
+ 
+●取用一組新的值:
+ SELECT img_seq.NEXTVAL FROM DUAL;
+
+得知目前使用到幾號 :
+ SELECT img_seq.CURRVAL FROM DUAL;

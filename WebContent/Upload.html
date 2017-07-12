@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=BIG5">
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<title>UpdateUpload.html</title>
+</head>
+<body>
+
+		<form action="UploadToDataBase" method=post enctype="multipart/form-data">
+		
+			<input type="file" name="upfile"  onchange="preview(this);"><br>
+			<input type="file" name="upfile"  onchange="preview(this);"><br>
+			<input type="file" name="upfile"  onchange="preview(this);"><br>
+			<input type="file" name="upfile"  onchange="preview(this);"><br>
+			
+			<input type="submit" value="Upload">			
+			
+		</form>
+	
+	<script>
+	
+	
+		
+	function preview(a){
+		
+		var reader = new FileReader();
+		reader.onload = function(event){
+				$("#img"+a.id).attr('src',event.target.result);
+				$("#img"+a.id).height(200).width(300);
+			}
+			reader.readAsDataURL(a.files[0]);
+	} 
+	
+	window.onload = function(){
+		
+		var upfile = document.getElementsByName("upfile");
+		for(i=0; i < upfile.length; i++){
+			var div =document.createElement("div");
+			var img = document.createElement("img");
+			upfile[i].id = i;
+			upfile[i].after(div);
+			div.appendChild(img);
+			img.id = "img"+i;
+		}
+	}
+	
+	
+	</script>
+	
+
+
+
+</body>
+</html>
